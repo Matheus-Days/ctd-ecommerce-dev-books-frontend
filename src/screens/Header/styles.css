@@ -4,53 +4,46 @@ header{
   align-items: center;
   height: 74px;
   padding: 0 20px;
-  background-color: #00CCC0;
-}
-
-.menu {
-  display: flex;
-  list-style: none;
-}
-
-.logo {
-  margin-left: 50px;
-}
-
-.menu-button{
-  margin: 0 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
+  font-size: 1.2rem;
   color: white;
-  cursor: pointer;
   background-color: #00CCC0; 
+  position: fixed;
+  width: 100%;
 }
 
+#logo {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: white;
+  font-size: .9rem;
+  gap: 10px;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+a{
+  color: white;
+}
+
+img{
+  height: 40px;
+}
 /* ===== Responsividade ===== */
 /* ===== Tela Tablet ===== */
-
 @media (max-width: 820px) and (min-width: 319px){
   header {
     height: 64px;
-    background-color: black;
   }
-
-.menu-button-home{
-  display: none;
-}
-
-.menu-button-product{
-  display: none;
-}
-
-.menu-button-about{
-  display: none;
-}
 
 }
 
 /* ===== Tela Mobile ===== */
-
 @media (max-width: 320px){
   header {
     height: 39px;

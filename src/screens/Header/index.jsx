@@ -1,25 +1,29 @@
 import "./styles.css"
-import logo from "../../screens/assets/logo.png"
-import {FaShoppingCart} from "react-icons/fa"
-import {RiAdminFill} from "react-icons/ri"
+import logo from "../../assets/logo.png"
+import { FaShoppingCart } from "react-icons/fa"
+import { RiAdminFill } from "react-icons/ri"
+import { Link } from "react-router-dom";
+
 
 export default function Header() {
 
   return (
-    <header>
-      <img className="logo" src={logo} width={180} />
+    <header id="header">
+      <a id="logo">
+        <img src={logo} alt='logo dev books' />
+        <h2>Dev Books</h2>
+      </a>
 
-      <ul className="menu">
-      <button className= "menu-button-home" type="button">Home</button>
-      <button className= "menu-button-product" type="button">Produtos</button>
-      <button className= "menu-button-about" type="button">Sobre Nós</button>
-      <button className= "menu-button-cart" type="button">Carrinho</button>
-      <button className= "menu-button-adm" type="button">Adm</button>
+      <nav id="nav">
+        <ul id="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Produtos</a></li>
+        <li><a href="/aboutus">Sobre nós</a></li>  
+        <li><Link to="/cart"><FaShoppingCart className="Cart" /></Link></li>
+          <li><Link to="/adm"><RiAdminFill className="Adm" /></Link></li>
+        </ul>
+      </nav>
 
-        <FaShoppingCart className="Cart"/>
-        <RiAdminFill className="Adm"/>
-   
-      </ul>
     </header>
   );
 
