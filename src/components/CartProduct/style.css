@@ -1,0 +1,125 @@
+.cart-product {
+  height: 144px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #DBFDF5;
+  display: grid;
+  grid-template-columns: 108px 1fr;
+}
+
+.cart-product button {
+  border: none;
+  background-color: transparent;
+}
+
+.img-cotainer {
+  width: 93px;
+  height: 123px;
+  position: relative;
+  margin: 10px 15px;
+}
+
+.product-picture {
+  height: 105px;
+  width: 76px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.product-background {
+  height: 106px;
+  width: 92px;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.product-info .title {
+  margin: 24px 0 0 0;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.product-info .price {
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.product-info .quantity-container {
+  margin-top: 30px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.product-info .quantity-container span {
+  display: flex;
+}
+
+.product-info .quantity-container .quantity {
+  font-weight: 900;
+  margin: 0 8px;
+}
+
+.product-info .quantity-container button {
+  color: #1B7F79;
+}
+
+.product-info .quantity-container .remove-btn {
+  margin-left: 16px;
+  color: #FF4858;
+}
+
+@media (min-width: 768px) {
+
+  .cart-product {
+    margin-bottom: 12px;
+  }
+  
+  .cart-product button {
+    border: none;
+    background-color: transparent;
+    height: 16px;
+  }
+  
+  .product-info {
+    padding: 0 16px;
+  }
+  
+  .product-info .title {
+    margin: 24px 0 0 0;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  
+  .product-info .price {
+    margin: 12px 0 0 0;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  
+  .product-info .quantity-container span {
+    align-items: center;
+  }
+  
+  .product-info .quantity-container .quantity {
+    margin: 0 16px;
+  }
+  
+  .product-info .quantity-container .remove-btn {
+    margin-left: 32px;
+  }
+  
+}
