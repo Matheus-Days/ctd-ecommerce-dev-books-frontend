@@ -4,6 +4,11 @@ import './App.css';
 import { Cart } from './screens/Cart';
 import { Home } from './screens/Home';
 
+import Header from "./screens/Header";
+import Footer from "./screens/Footer";
+import ErrorPage from "./screens/ErrorPage";
+import AboutUs from "./screens/AboutUs";
+
 const mockCart = [
   {
     id: "1",
@@ -63,16 +68,18 @@ function App() {
 
   return (
     <CartContext.Provider value={value}>
-      <header></header>
+      <Header />
       <main>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </main>
-      <footer></footer>
+      <Footer />
     </CartContext.Provider>
   );
 }

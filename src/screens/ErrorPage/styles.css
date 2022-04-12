@@ -1,0 +1,48 @@
+div {
+  text-align: center;
+  align-items: center;
+}
+
+h1{
+  font-size: 1rem;
+}
+
+h4{
+  font-size: 1rem;
+}
+
+.image {
+  height: 300px;
+}
+
+/* ===== Responsividade ===== */
+/* ===== Tela Tablet ===== */
+
+@media (max-width: 820px) and (min-width: 319px){
+  div {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    height: 61px;
+    margin-right: 10px;
+  }
+  .title {
+    font-size: 0.625rem;
+  }
+}
+
+/* ===== Tela Mobile ===== */
+
+@media (max-width: 320px){
+  footer {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    height: 32px;
+    margin-right: 10px;
+  }
+  .footer-text {
+    font-size: 0.438rem;
+  }
+
+}
