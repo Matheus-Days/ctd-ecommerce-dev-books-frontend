@@ -1,0 +1,40 @@
+.category-list-item-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+    max-height: 335px;
+    padding: 40px;
+    margin: 0 24px 100px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: box-shadow 0.2s;
+
+    &:hover {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+
+        max-width: 220px;
+        max-height: 200px;
+    }
+
+    &__category-name {
+        margin-top: 36px;
+
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+    }
+}

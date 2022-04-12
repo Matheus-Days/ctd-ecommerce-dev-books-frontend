@@ -1,0 +1,13 @@
+.categories-container {
+    height: 100%;
+
+    &__item-list {
+        padding: 64px 100px;
+        
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
