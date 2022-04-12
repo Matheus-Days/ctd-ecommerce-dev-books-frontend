@@ -1,4 +1,4 @@
-import "./styles.css"
+import "./styles.scss"
 import logo from "../../assets/logo.png"
 import { FaShoppingCart } from "react-icons/fa"
 import { RiAdminFill } from "react-icons/ri"
@@ -8,19 +8,20 @@ import { Link } from "react-router-dom";
 export default function Header() {
 
   return (
-    <header id="header">
-      <a id="logo">
+    <header>
+      <Link to="/" className="logo">
         <img src={logo} alt='logo dev books' />
         <h2>Dev Books</h2>
-      </a>
+      </Link>
 
-      <nav id="nav">
-        <ul id="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/products">Produtos</a></li>
-        <li><a href="/aboutus">Sobre nós</a></li>  
+      <nav>
+        <ul className="menu">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Produtos</Link></li>
+        <li><Link to="/categories">Categorias</Link></li>
+        <li><Link to="/aboutus">Sobre nós</Link></li>  
         <li><Link to="/cart"><FaShoppingCart className="Cart" /></Link></li>
-          <li><Link to="/adm"><RiAdminFill className="Adm" /></Link></li>
+          <li><Link to="/admin"><RiAdminFill className="Adm" /></Link></li>
         </ul>
       </nav>
 

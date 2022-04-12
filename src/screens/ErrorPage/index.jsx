@@ -1,22 +1,14 @@
-import "./styles.css"
+import "./styles.scss"
 import image from "../../assets/404.png"
-import header from "../Header"
-import footer from "../Footer"
 
 export default function ErrorPage() {
 
   return (
-    <>
-    <header src={header}></header>
-
-    <div>
-      <h4>erro 404</h4>
+    <div id="error-screen">
+      <p>Código 404</p>
       <h1>Página não encontrada.</h1>
       <img className="image" src={image} alt='open book'/>
     </div>
-
-    <footer src={footer}></footer>
-    </>
   );
 
 }

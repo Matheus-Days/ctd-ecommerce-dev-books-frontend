@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Cart } from './screens/Cart';
-import { Home } from './screens/Home';
+// import { Home } from './screens/Home';
 
 import Header from "./screens/Header";
 import Footer from "./screens/Footer";
@@ -68,18 +68,18 @@ function App() {
 
   return (
     <CartContext.Provider value={value}>
-      <Header />
-      <main>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/aboutUs" element={<AboutUs />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </BrowserRouter>
-      </main>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <main>
+        <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
     </CartContext.Provider>
   );
 }

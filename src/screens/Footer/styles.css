@@ -2,20 +2,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 91px;
+  height: 48px;
   padding: 0 20px;
   background-color: #00CCC0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
 }
 
-.logo {
+footer .logo {
   margin-right: 10px;
+  width: 31px;
+  height: 20px;
 }
 
-.footer-text {
+footer .footer-text {
   color: white;
   font-size: 0.75rem;
 }
@@ -31,7 +30,7 @@ footer {
     height: 61px;
     margin-right: 10px;
   }
-  .footer-text {
+  footer .footer-text {
     font-size: 0.625rem;
   }
 }
@@ -46,7 +45,7 @@ footer {
     height: 32px;
     margin-right: 10px;
   }
-  .footer-text {
+  footer .footer-text {
     font-size: 0.438rem;
   }
 }
