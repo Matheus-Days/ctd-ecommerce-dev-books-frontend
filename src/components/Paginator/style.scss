@@ -1,0 +1,23 @@
+.paginator {
+  font-size: 12px;
+
+  button {
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    border: 0;
+    font-size: 14px;
+    color: #00CCC0;
+    cursor: pointer;
+
+    &:disabled {
+      color: rgb(116, 127, 127, 0.6);
+      cursor: default;
+    }
+  }
+
+  .page-number {
+    margin: 0 16px;
+  }
+}
