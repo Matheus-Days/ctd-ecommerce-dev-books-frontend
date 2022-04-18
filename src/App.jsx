@@ -4,8 +4,8 @@ import './App.css';
 import { Cart } from './screens/Cart';
 // import { Home } from './screens/Home';
 
-import Header from "./screens/Header";
-import Footer from "./screens/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ErrorPage from "./screens/ErrorPage";
 import AboutUs from "./screens/AboutUs";
 

@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+footer {
+  font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  align-content: center;
+  height: 32px;
+  padding: 0 20px;
+  background-color: #00CCC0;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  color: white;
+  font-size: 0.438rem;
+  
+}
+
+footer .logo {
+  margin-right: 10px;
+  width: 31px;
+  height: 20px;
+}
+
+/* ===== media query ===== */
+/* ===== tablet ===== */
+@media (min-width: 768px) {
+  footer {
+    height: 48px;
+    margin-right: 10px;
+    font-size: 0.625rem;
+  }
+ 
+}
+
+
+/* ===== pc ===== */
+@media (min-width: 1024px) {
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 61px;
+    font-size: 0.75rem;
+  }
+
+}

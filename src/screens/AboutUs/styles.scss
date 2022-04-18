@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+#profile {
+  font-family: 'Roboto Condensed', sans-serif;
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+
+  .profile-intro {
+    padding: 20px 30px;
+    text-align: center;
+  }
+
+  .profile-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .profile-txt {
+    font-size: 0.75rem;
+  }
+
+  .card-list {
+    display: block;
+  }
+  
+  .item-list-card {
+    border: 1px solid;
+    border-color: #1B7F79;
+    border-radius: 20px;
+    display: flex;
+    margin:0 auto;
+    justify-content: space-around;
+    align-items: center;
+    padding: .5rem;
+    width: 350px;
+    margin-top: 10px;
+  }
+
+  .card-image {
+    height: 114px;
+    width: 114px;
+    border-radius: 10px;
+  }
+
+  .card-name {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .card-social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  .card-git{
+    padding: .5rem;
+    height: 20px;
+  }
+  .card-linkedin{
+    padding: .5rem;
+    size: 20px;
+  }
+}
+
+/* ===== media query ===== */
+/* ===== tablet ===== */
+@media (min-width: 768px) {
+  #profile{
+
+  .profile-intro {
+    padding: 20px 100px;
+    text-align: center;
+  }
+
+  .profile-title {
+    font-size: 1.375rem;
+  }
+
+  .profile-txt {
+    font-size: 1.25rem;
+  }
+
+  .card-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .item-list-card {
+    display: block;
+    margin:0 auto;
+    border: 2px solid;
+    border-color: #1B7F79;
+    border-radius: 20px;
+    display: block;
+    height: 430px;
+    width: 330px;
+    margin: 10px;
+  }
+  
+  .card-image {
+    height: 216px;
+    width: 216px;
+    border-radius: 10px;
+    margin: 20px 50px;
+  }
+
+  .card-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .card-social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-git{
+    padding: .5rem;
+    font-size: 35px;
+  }
+  .card-linkedin{
+    padding: .5rem;
+    font-size: 35px;
+  }
+  }
+}
+
+/* ===== pc ===== */
+@media (min-width: 1024px) {
+    #profile{
+
+      .profile-intro {
+
+        padding: 20px 300px;
+        text-align: center;
+      }
+    
+      .profile-title {
+        font-size: 1.375rem;
+      }
+    
+      .profile-txt {
+        font-size: 1.25rem;
+      }
+    
+      .card-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .item-list-card {
+        display: block;
+        margin:0 auto;
+        border: 2px solid;
+        border-color: #1B7F79;
+        border-radius: 20px;
+        display: block;
+        height: 430px;
+        width: 330px;
+        margin: 20px 35px;
+      }
+      
+      .card-image {
+        height: 185px;
+        width: 185px;
+        border-radius: 10px;
+        margin: 30px 60px;
+      }
+    
+      .card-name {
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+    
+      .card-social {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-git{
+        padding: .5rem;
+        font-size: 35px;
+      }
+      .card-linkedin{
+        padding: .5rem;
+        font-size: 35px;
+      }
+      }
+    }
