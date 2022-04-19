@@ -48,6 +48,7 @@ export function Slider({ items }) {
             <div className="container-slider__dots-wrapper">
                 {Array.from({length: items.length}).map((item, index) => (
                     <div 
+                        key={index}
                         onClick={() => moveDot(index + 1)}
                         className={slideIndex === index + 1 ? "container-slider__dots-wrapper__dot container-slider__dots-wrapper__dot--active" : "container-slider__dots-wrapper__dot"}
                     />

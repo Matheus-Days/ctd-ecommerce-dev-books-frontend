@@ -17,10 +17,17 @@
     }
 
     &__item-list {
-        width: 80%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+        & > a {
+            margin: 0 64px 32px;
+        }
     }
+
     &__item {
         font-weight: 600;
         font-size: 13px;

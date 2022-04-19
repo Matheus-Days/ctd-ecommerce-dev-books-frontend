@@ -1,23 +1,35 @@
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { useCategory } from '../../providers'
+
 
 import './style.scss'
 import { CategoriesHeader } from '../CategoriesHeader'
 
-export function ProductsContainer({ categoryType, children, showSideMenu = true }) {
-        const linkStyle = (category) => `product-container__wrapper__link ${categoryType === category ? 'product-container__wrapper__link--active' : ''}`
+export function ProductsContainer({ children, showSideMenu = true }) {
+        const { categoryId } = useParams() 
+        const { categories, isCategoryLoaded, getCategory } = useCategory()
+
+        const [selectedCategory, setSelectedCategory] = useState({})
+
+        useEffect(() => {
+            if (isCategoryLoaded) {
+              setSelectedCategory(getCategory(+categoryId))
+            }
+          }, [isCategoryLoaded, categoryId, getCategory])
+        
+        const linkStyle = (category) => `product-container__wrapper__link ${categoryId === category ? 'product-container__wrapper__link--active' : ''}`
 
         return (
             <div className="product-container">
-                <CategoriesHeader categoryType={categoryType} />
+                <CategoriesHeader categoryName={selectedCategory.nome ?? 'Todos os Produtos'} />
                 <div className="product-container__wrapper">
                     {showSideMenu && <aside className="product-container__wrapper__side-menu">
                         <Link className="product-container__wrapper__category" to="/categories">Categorias</Link>
                         <div>
-                            <Link className={linkStyle('metodologias-ageis')} to="/products/metodologias-ageis">Metodologias ageis</Link>
-                            <Link className={linkStyle('programacao')} to="/products/programacao">Programação</Link>
-                            <Link className={linkStyle('banco-de-dados')} to="/products/banco-de-dados">Banco de dados</Link>
-                            <Link className={linkStyle('web-design')} to="/products/web-design">Web design</Link>
-                            <Link className={linkStyle('redes')} to="/products/redes">Redes</Link>
+                            {categories.map(category => (
+                                 <Link key={category.id} className={linkStyle(category.id)} to={`/products/${category.id}`}>{category.nome}</Link>
+                            ))}
                         </div>
                     </aside>}
                     <div className="product-container__wrapper__container">{children}</div>

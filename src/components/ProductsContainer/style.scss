@@ -13,9 +13,9 @@
     
             background: #E5FCF6;
             width: 100%;
-            max-width: 185px;
+            max-width: 225px;
             
-            @media (min-width: 600px) {
+            @media (min-width: 768px) {
                 display: flex;
                 flex-direction: column;
 
@@ -57,7 +57,6 @@
             transition: color 0.2s;
 
             &:hover {
-                font-weight: bold;
                 color: #00CCC0;
             }
 

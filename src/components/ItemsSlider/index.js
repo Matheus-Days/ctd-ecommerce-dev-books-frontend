@@ -6,7 +6,7 @@ import './style.scss'
 export function ItemsSlider({children }) {
     const [carouselIndex, setCarouselIndex] = useState(0)
     const [isShowingPrevButton, setIsShowingPrevButton] = useState(false)
-    const [isShowingNextButton, setIsShowingNextButton] = useState(false)
+    const [isShowingNextButton, setIsShowingNextButton] = useState(true)
 
     const [trackInlineStyle, setTrackinlineStyle] = useState({})
 
@@ -15,14 +15,9 @@ export function ItemsSlider({children }) {
 
     const handleSliderSize = useCallback(() => {
         const itemsWidth = trackRef.current.offsetWidth
-        
         setIsShowingNextButton(itemsWidth > window.innerWidth)
     }, [trackRef])
 
-    useEffect(() => {
-        handleSliderSize()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
     
     useEffect(() => {
         window.addEventListener('resize', handleSliderSize);

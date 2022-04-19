@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom'
 
 import './style.scss'
 
-export function CategoryListItem({ image, categoryName, categoryType }) {
+export function CategoryListItem({ image, categoryName, id }) {
     const navigate = useNavigate()
 
     const onContainerClick = () => {
-        navigate(`/products/${categoryType}`)
+        navigate(`/products/${id}`)
     }
 
     return (

@@ -1,6 +1,10 @@
 .home-container {
     &__most-selled-list {
+        display: flex;
+        flex-direction: column;
         text-align: center;
+        width: 100%;
+        padding: 16px;
 
         &__title {
             margin: 16px;
@@ -9,6 +13,28 @@
             line-height: 28px;
 
             color: #1B7F79;
+        }
+
+        &__slider-wrapper {
+            display: none;
+
+            @media (min-width: 768px) {
+                display: block;
+            }
+        }
+
+        &__product-list {
+            margin: 16px;
+            width: 100%;
+
+            & > div + div {
+                margin-top: 16px;
+            }
+
+            @media (min-width: 768px) {
+                display: none;
+            }
+
         }
     }
 }

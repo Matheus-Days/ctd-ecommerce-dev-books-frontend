@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { CategoryProvider } from './providers'
 import { Categories } from './screens/Categories'
 import { Home } from './screens/Home';
 import { Products } from './screens/Products'
@@ -17,7 +18,7 @@ import AboutUs from "./screens/AboutUs";
 
 const mockCart = [
   {
-    id: "1",
+    id: 1,
     title: "Padrões de projeto",
     coverSrc:
       "https://dl4326nmjp5rc.cloudfront.net/Custom/Content/Products/98/97/989759_padroes-de-projeto_l9_637147798831529653.jpg",
@@ -25,7 +26,7 @@ const mockCart = [
     quantity: 1,
   },
   {
-    id: "2",
+    id: 2,
     title: "Padrões de projeto",
     coverSrc:
       "https://dl4326nmjp5rc.cloudfront.net/Custom/Content/Products/98/97/989759_padroes-de-projeto_l9_637147798831529653.jpg",
@@ -33,7 +34,7 @@ const mockCart = [
     quantity: 3,
   },
   {
-    id: "3",
+    id: 3,
     title: "Padrões de projeto",
     coverSrc:
       "https://dl4326nmjp5rc.cloudfront.net/Custom/Content/Products/98/97/989759_padroes-de-projeto_l9_637147798831529653.jpg",
@@ -41,7 +42,7 @@ const mockCart = [
     quantity: 2,
   },
   {
-    id: "4",
+    id: 4,
     title: "Padrões de projeto",
     coverSrc:
       "https://dl4326nmjp5rc.cloudfront.net/Custom/Content/Products/98/97/989759_padroes-de-projeto_l9_637147798831529653.jpg",
@@ -49,7 +50,7 @@ const mockCart = [
     quantity: 1,
   },
   {
-    id: "5",
+    id: 5,
     title: "Padrões de projeto",
     coverSrc:
       "https://dl4326nmjp5rc.cloudfront.net/Custom/Content/Products/98/97/989759_padroes-de-projeto_l9_637147798831529653.jpg",
@@ -57,7 +58,7 @@ const mockCart = [
     quantity: 3,
   },
   {
-    id: "6",
+    id: 6,
     title: "Padrões de projeto",
     coverSrc:
       "https://dl4326nmjp5rc.cloudfront.net/Custom/Content/Products/98/97/989759_padroes-de-projeto_l9_637147798831529653.jpg",
@@ -73,24 +74,25 @@ function App() {
   const value = { cart: cart, setCart };
 
   return (
-    <CartContext.Provider value={value}>
-      <BrowserRouter>
-        <Header />
-        <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/products/:category" element={<ProductsCategory />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
-          <Route path="*" element={<ErrorPage />} />
-          
-        </Routes>
-        </main>
-        <Footer />
-      </BrowserRouter>
-    </CartContext.Provider>
+    <CategoryProvider>
+      <CartContext.Provider value={value}>
+        <BrowserRouter>
+          <main>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/products/:categoryId" element={<ProductsCategory />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+          </main>
+        </BrowserRouter>
+      </CartContext.Provider>
+    </CategoryProvider>
   );
 }
 
