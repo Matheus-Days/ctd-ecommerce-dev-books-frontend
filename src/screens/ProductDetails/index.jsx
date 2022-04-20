@@ -11,7 +11,7 @@ export function ProductDetails() {
   const params = useParams();
   const [product, setProduct] = useState();
   const [disableButton, setDisableButton] = useState();
-  const { cart, addToCart, setCart } = useContext(CartContext);
+  const { cart, addToCart } = useContext(CartContext);
 
   const getProduct = () => {
     useApi
@@ -22,7 +22,7 @@ export function ProductDetails() {
       .catch((e) => e);
   };
 
-  useEffect(getProduct, []);
+  useEffect(getProduct, [params]);
 
   useEffect(() => {
     const itemIndex = cart.findIndex((item) => item.data.id === product?.id);
@@ -31,9 +31,10 @@ export function ProductDetails() {
     } else {
       setDisableButton(true);
     }
-  }, [cart]);
+  }, [cart, product]);
 
   const handleClick = () => {
+    console.log(product)
     addToCart(product);
   };
 
