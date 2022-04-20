@@ -59,18 +59,18 @@ export default function AboutUs() {
 
         <ul className="card-list">
           {data.map(({ image, name, Linkedin, Git }) => (
-            <a>
+            <div>
               <li className="item-list-card">
                 <img src={image} className="card-image" alt="foto dos integrantes" />
                 <div className="card-social">
                   <h3 className="card-name">{name}</h3>
                   <div className="card-media">
-                    <a className="card-git" href={Git} target="_blank"><SiGithub color="black" /></a>
-                    <a className="card-linkedin" href={Linkedin} target="_blank"><AiOutlineLinkedin color="black" /></a>
+                    <a className="card-git" href={Git} rel="noreferrer" target="_blank"><SiGithub color="black" /></a>
+                    <a className="card-linkedin" href={Linkedin} rel="noreferrer" target="_blank"><AiOutlineLinkedin color="black" /></a>
                   </div>
                 </div>
               </li>
-            </a>
+            </div>
           ))}
         </ul>
       </div>
