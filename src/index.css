@@ -6,7 +6,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  /* padding-top: 39px; */
 }
 
 html, body, #root {
@@ -17,3 +17,16 @@ html, body, #root {
 * {
   box-sizing: border-box;
 }
+/* 
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-top: 74px;
+  }
+} */
