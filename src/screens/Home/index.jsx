@@ -1,29 +1,30 @@
 import { useCallback, useEffect, useState } from 'react'
 
 import './style.scss';
-import { Slider, ProductListItem, ItemsSlider } from '../../components'
+import { ProductListItem, ItemsSlider, HomeBanner } from '../../components'
 import { CategoriesList } from './components'
-import { mockProducts, mockSlider } from '../../mocks'
-import { api } from '../../services'
-
+import { useApi } from '../../hooks/useApi'
+import Banner from '../../assets/banner.png'
 
 export function Home() {
   const [products, setProducts] = useState([])
 
   const getProducts = useCallback(async () => {
-    // await api.get('/products').then(response => {
-    //     setProducts(response.data.content.slice(0, 8))
-    // })
+    await useApi.get('/products')
+      .then(response => {
+          setProducts(response.data.slice(0, 8))
+      })
+      .catch(() => null)
 
-    setProducts(mockProducts.slice(0,8))
   }, [])
+
   useEffect(() => {
     getProducts()
-  }, [])
+  }, [getProducts])
 
   return (
     <div className="home-container">
-      <Slider items={mockSlider} />
+      <HomeBanner image={Banner} />
       <CategoriesList />
       <div className="home-container__most-selled-list">
         <h4 className="home-container__most-selled-list__title">Livros mais vendidos</h4>

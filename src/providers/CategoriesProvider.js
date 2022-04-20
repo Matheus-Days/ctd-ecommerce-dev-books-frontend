@@ -1,7 +1,6 @@
 import { createContext, useCallback, useContext,  useState, useEffect } from 'react';
 
-import { mockCategories } from '../mocks'
-import { api } from '../services'
+import { useApi } from '../hooks/useApi'
 
 export const CategoryContext = createContext()
 
@@ -10,13 +9,12 @@ export const CategoryProvider = ({ children }) => {
     const [isCategoryLoaded, setIsCategoryLoaded] = useState(false)
 
     const getCategories = useCallback(async () => {
-        // await api.get(`/categories).then(response => {
-        //     console.log(response.data.content)
-        //     setCategories(response.data.content)
-        // setIsCategoryLoaded(true)
-        // })
-        setCategories(mockCategories) // Tirar após integracao
-        setIsCategoryLoaded(true)
+        await useApi.get('/categories')
+          .then(response => {
+            setCategories(response.data.content)
+            setIsCategoryLoaded(true)
+          })
+          .catch(() => null)
       }, [])
 
       const getCategory = (id) => {
