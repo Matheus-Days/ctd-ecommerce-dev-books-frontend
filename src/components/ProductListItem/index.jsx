@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 
 import './style.scss'
-import { CartContext } from '../../App'
+import { CartContext } from "../CartProvider"
 
 export function ProductListItem({ className, imageUrl, name, price, id }) {
     const { cart } = useContext(CartContext)

@@ -1,32 +1,47 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
+import NumberFormat from "react-number-format";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../App";
 import { CartProduct } from "../../components/CartProduct";
-import "./style.css";
+import { CartContext } from "../../components/CartProvider";
+import { currencyFormatter } from "../../utils/currencyFormatter";
+import "./style.scss";
 
 export function Cart() {
-  const {cart, setCart} = useContext(CartContext);
-  
+  const { cart, setCart } = useContext(CartContext);
+  const [subTotal, setSubTotal] = useState(0);
+
+  useEffect(() => {
+    const totalPrice = cart.reduce((acc, curr) => {
+      return acc + curr.quantity * curr.data?.price;
+    }, 0);
+
+    setSubTotal(totalPrice);
+  }, [cart]);
+
   const handleQuantityChange = (id, action) => {
-    const newCart = cart.map(product => {
-      if(id === product.id) {
-        switch(action) {
-          case 'increase':
-            product.quantity += 1;
-            break;
-          case 'decrease':
-            if(product.quantity > 1)
-              product.quantity -= 1;
-            break;
-          case 'delete':
-            product = null;
-            break;
-          default:
+    const newCart = cart
+      .map((product) => {
+        if (id === product.data.id) {
+          switch (action) {
+            case "increase":
+              product.quantity += 1;
+              break;
+            case "decrease":
+              if (product.quantity > 1) product.quantity -= 1;
+              break;
+            case "delete":
+              product = null;
+              break;
+            default:
+          }
         }
-      }
-      return product;
-    });
-    setCart(newCart.filter(val => val));
+        return product;
+      })
+      .filter((val) => val);
+
+    setCart(newCart);
   };
 
   return (
@@ -36,7 +51,7 @@ export function Cart() {
         <div className="cart-products">
           {cart.map((product) => (
             <CartProduct
-              key={product.id}
+              key={product.data.id}
               product={product}
               changeQuantity={handleQuantityChange}
             />
@@ -49,8 +64,18 @@ export function Cart() {
           <div className="line">
             <span className="label">Valor:</span>
             <span className="value">
-              <span className="cypher">R$</span>
-              <span className="number">141,80</span>
+              {subTotal ? (
+                <NumberFormat
+                  className="number"
+                  displayType="text"
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  format={currencyFormatter}
+                  value={subTotal * 100}
+                />
+              ) : (
+                "R$ 0,00"
+              )}
             </span>
           </div>
           <div className="line">
@@ -62,8 +87,18 @@ export function Cart() {
           <div className="line">
             <span className="label">Total:</span>
             <span className="value">
-              <span className="cypher">R$</span>
-              <span className="number">141,80</span>
+              {subTotal ? (
+                <NumberFormat
+                  className="number"
+                  displayType="text"
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  format={currencyFormatter}
+                  value={subTotal * 100}
+                />
+              ) : (
+                "R$ 0,00"
+              )}
             </span>
           </div>
         </div>
