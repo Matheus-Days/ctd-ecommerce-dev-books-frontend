@@ -1,41 +1,18 @@
-import { FaTrash, FaPen } from "react-icons/fa";
-import "./style.scss";
+import { useNavigate } from 'react-router-dom'
 
-export function CategoryListItem({ data, onEdit, onDelete }) {
-  let id, nome;
-  if (data) {
-    id = data.id;
-    nome = data.nome;
-  }
+import './style.scss'
 
-  const handleEdit = () => {
-    onEdit && onEdit(data);
-  };
+export function CategoryListItem({ image, categoryName, id }) {
+    const navigate = useNavigate()
 
-  const handleDelete = () => {
-    onDelete && onDelete(data);
-  };
+    const onContainerClick = () => {
+        navigate(`/products/${id}`)
+    }
 
-  return (
-    <li className="category-list-item">
-      <div>
-        <div className="info-container">
-          <span className="label">Código:</span>
-          <span className="value">{id}</span>
+    return (
+        <div className="category-list-item-wrapper" onClick={onContainerClick}>
+            <img src={image} alt="Imagem da categoria" className="category-list-item-wrapper__image"/>
+            <strong className="category-list-item-wrapper__category-name">{categoryName}</strong>
         </div>
-        <div className="info-container name">
-          <span className="label">Nome:</span>
-          <span className="value">{nome}</span>
-        </div>
-        <div className="btns-container">
-          <button className="edit-btn" onClick={handleEdit}>
-            <FaPen />
-          </button>
-          <button className="delete-btn" onClick={handleDelete}>
-            <FaTrash />
-          </button>
-        </div>
-      </div>
-    </li>
-  );
+    )
 }

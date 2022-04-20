@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+.carousel-container {
+  width: 100%;
+  margin: 50px 0;
+  padding: 0 32px;
+  min-height: 200px;
+  position: relative;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: auto;
+  }
+
+
+  @media (min-width: 1024px) {
+    max-width: 1320px;
+    margin: 50px auto;
+    
+  }
+  &__inner {
+    overflow: hidden;
+    padding: 24px 0;
+  }
+  
+  &__track {
+    display: inline-flex;
+    transition: transform 0.5s;
+
+    & > * + * {
+      margin-left: 32px;
+    }
+  }
+
+  &__controls {
+
+    &__button {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border-radius: 50%;
+      border: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      &--prev {
+        left: 0px;
+      }
+
+      &--next {
+        right: 0px;
+      }
+    }
+  }
+}

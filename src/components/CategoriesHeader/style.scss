@@ -1,0 +1,15 @@
+.categories-header {
+    height: 144px;
+    min-height: 144px;
+    background:  #E5FCF6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 30px;
+        color: #000000;
+    }
+}

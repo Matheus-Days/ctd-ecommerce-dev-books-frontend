@@ -3,11 +3,11 @@ import { FaPlusCircle } from "react-icons/fa";
 import { Modal } from "react-bootstrap";
 import headingBackground from "../../assets/heading-background.svg";
 import { CategoryForm } from "../CategoryForm";
-import { CategoryListItem } from "../CategoryListItem";
 import { Paginator } from "../Paginator";
 import "./style.scss";
 import { ImCross } from "react-icons/im";
 import { useApi } from "../../hooks/useApi";
+import { AdminCategoryListItem } from "../AdminCategoryListItem";
 
 export function CategoriesList() {
   const [page, setPage] = useState(1);
@@ -111,7 +111,7 @@ export function CategoriesList() {
       </div>
       <ul>
         {categoriesPage.map((cat) => (
-          <CategoryListItem
+          <AdminCategoryListItem
             key={cat.id}
             data={cat}
             onEdit={handleEdit}

@@ -1,0 +1,21 @@
+.products-container {
+    height: 100%;
+
+    &__item-list {
+        padding: 100px 0;
+        
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+        & > div {
+            margin: 0 24px 100px;
+        }
+
+        @media (min-width: 768px) {
+            padding: 100px 64px;
+        }
+    }
+}

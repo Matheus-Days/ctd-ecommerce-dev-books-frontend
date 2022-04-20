@@ -1,0 +1,18 @@
+.categories-container {
+    height: auto;
+
+    &__item-list {
+        padding: 100px 0;
+        
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+        @media (min-width: 768px) {
+            padding: 100px 64px;
+        }
+    }
+}
+

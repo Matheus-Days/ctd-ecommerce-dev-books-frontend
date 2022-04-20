@@ -6,10 +6,10 @@ import { Modal } from "react-bootstrap";
 import { Paginator } from "../../components/Paginator";
 
 import headingBackground from "../../assets/heading-background.svg";
-import { ProductListItem } from "../../components/ProductListItem";
 import { ProductForm } from "../ProductForm";
 import "./style.scss";
 import { useApi } from "../../hooks/useApi";
+import { AdminProductListItem } from "../AdminProductListItem";
 
 export function ProductsList() {
   const [page, setPage] = useState(1);
@@ -109,7 +109,7 @@ export function ProductsList() {
       </div>
       <ul>
         {productsPage.map((data) => (
-          <ProductListItem
+          <AdminProductListItem
             key={data.id}
             data={data}
             onEdit={handleEdit}

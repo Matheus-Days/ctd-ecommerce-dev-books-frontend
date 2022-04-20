@@ -1,61 +1,32 @@
-import { FaTrash, FaPen } from "react-icons/fa";
-import NumberFormat from "react-number-format";
-import { currencyFormatter } from "../../utils/currencyFormatter";
-import "./style.scss";
+import React, { useContext, useEffect, useState } from 'react'
 
-export function ProductListItem({ data, onEdit, onDelete }) {
-  let id, title, publishingCompany, price;
-  if(data) {
-    id = data.id;
-    title = data.title;
-    publishingCompany = data.publishingCompany;
-    price = data.price * 100;
-  }
+import './style.scss'
+import { CartContext } from "../CartProvider"
 
-  const handleEdit = () => {
-    onEdit && onEdit(data);
-  }
+export function ProductListItem({ className, imageUrl, name, price, id }) {
+    const { cart } = useContext(CartContext)
+    const [isAdded, setIsAdded] = useState(false)
 
-  const handleDelete = () => {
-    onDelete && onDelete(data)
-  }
+    useEffect(() => {
+       const hasProduct = cart.find(cartItem => cartItem.id === id)
+       setIsAdded(!!hasProduct)
+    }, [cart, id])
 
-  return (
-    <li className="product-list-item">
-      <div>
-        <div className="info-container">
-          <span className="label">Código:</span>
-          <span className="value">{id}</span>
+    const onProductClick = () => {
+        console.log('id', id)
+    }
+
+    const onBuyClick = (event) => {
+        console.log('buy', id)
+        event.stopPropagation()
+    }
+
+    return <div className={`product-list-item-wrapper${className ? ` ${className}` : ''}`} onClick={onProductClick}>
+        <img className="product-list-item-wrapper__image" src={imageUrl} alt="Imagem do produto" />
+        <div className="product-list-item-wrapper__product-info">
+            <strong className="product-list-item-wrapper__product-name">{name}</strong>
+            <span className="product-list-item-wrapper__price">R$ {price.toFixed(2)}</span>
+            <button className="product-list-item-wrapper__buy-button" onClick={onBuyClick}>{isAdded ? 'ADICIONADO' : 'COMPRAR'}</button>
         </div>
-        <div className="info-container">
-          <span className="label">Título:</span>
-          <span className="value">{title}</span>
-        </div>
-        <div className="info-container">
-          <span className="label">Editora:</span>
-          <span className="value">{publishingCompany}</span>
-        </div>
-        <div className="info-container">
-          <span className="label">Preço:</span>
-          <NumberFormat
-            className="value"
-            displayType="text"
-            prefix="R$ "
-            thousandSeparator="."
-            decimalSeparator=","
-            format={currencyFormatter}
-            value={price}
-          />
-        </div>
-        <div className="btns-container">
-          <button className="edit-btn" onClick={handleEdit}>
-            <FaPen />
-          </button>
-          <button className="delete-btn" onClick={handleDelete}>
-            <FaTrash />
-          </button>
-        </div>
-      </div>
-    </li>
-  );
+    </div>
 }
