@@ -1,10 +1,13 @@
 import { FaTrash, FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import NumberFormat from "react-number-format";
 
 import backgroundSvg from "../../assets/product-background.svg";
-import "./style.css";
+import { currencyFormatter } from "../../utils/currencyFormatter";
+import "./style.scss";
 
 export function CartProduct({ product, changeQuantity }) {
-  const { id, title, coverSrc, price, quantity } = product;
+  const { quantity } = product;
+  const { id, title, image, price } = product?.data;
 
   const increaseQuantity = () => {
     changeQuantity(id, 'increase');
@@ -23,14 +26,22 @@ export function CartProduct({ product, changeQuantity }) {
       <div className="img-cotainer">
         <img
           className="product-picture"
-          src={coverSrc}
+          src={image}
           alt={"Capa do livro " + title}
         />
         <img src={backgroundSvg} alt="" className="product-background" />
       </div>
       <div className="product-info">
         <p className="title">{title}</p>
-        <p className="price">R$ {price}</p>
+        <NumberFormat
+            className="price"
+            displayType="text"
+            prefix="R$ "
+            thousandSeparator="."
+            decimalSeparator=","
+            format={currencyFormatter}
+            value={price * 100}
+          />
         <div className="quantity-container">
           <span>
             <button onClick={decreaseQuantity}>
