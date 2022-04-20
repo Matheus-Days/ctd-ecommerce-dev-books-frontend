@@ -1,28 +1,24 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { api } from '../../services'
 import { ProductsContainer, ProductListItem } from '../../components'
-import { mockProducts } from '../../mocks'
+import { useApi } from '../../hooks/useApi'
 import './style.scss'
 
 
 export function ProductsCategory() {
     const { categoryId } = useParams()
 
-    const [products, setProducts] = useState(mockProducts)
+    const [products, setProducts] = useState([])
     
-    console.log({ products })
     const getCategories = useCallback(async () => {
-      // await api.get(`/products`).then(response => {
-        // const products = response.data 
-        // const filteredProducts = products.filter(product => product.category.id === +categoryId)
-        // setProducts(filteredProducts ?? [])
-      // })
+      await useApi.get('/products')
+      .then(response => {
+        const filteredProducts = response.data.filter(product => product.category.id === +categoryId)
+        setProducts(filteredProducts ?? [])
+      })
+      .catch(() => null)
 
-      const cameFromApiProducts = mockProducts
-      const filteredProducts = cameFromApiProducts.filter(product => product.category.id === +categoryId)
-      setProducts(filteredProducts)
     }, [categoryId])
   
     useEffect(() => {
