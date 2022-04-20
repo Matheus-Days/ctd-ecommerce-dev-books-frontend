@@ -1,4 +1,4 @@
-import "./styles.css"
+import "./styles.scss"
 import logo from "../../assets/logo.png"
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
     
     <footer>
       <img className= "logo" src={logo} alt='logo dev books' />
-      <p className="footer-text">Dev Books S/A | CNPJ 62.410.352/0001-72  | © Copyrights 2022</p>
+      <p>Dev Books S/A | CNPJ 01.234.567/0001-01  | © Copyrights 2022</p>
     </footer>
   );
 
