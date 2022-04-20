@@ -1,15 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import { ProductsContainer, ProductListItem } from '../../components'
-
+import { useApi } from '../../hooks/useApi'
 import './style.scss'
-import { mockProducts } from '../../mocks'
 
 export function Products() {
-  const [products, setProducts] = useState(mockProducts)
+  const [products, setProducts] = useState([])
 
   const getProducts = useCallback(async () => {
-    // await api.get(`/products).then(response => console.log(response.data.content))
+    await useApi.get('/products')
+      .then(response => setProducts(response.data))
+      .catch(() => null)
   }, [])
 
   

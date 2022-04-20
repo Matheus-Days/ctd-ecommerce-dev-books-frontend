@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import AboutUs from "./screens/AboutUs";
 import { CartProvider } from './components/CartProvider';
-import { ProductDetails } from './screens/ProductDetails';
+// import { ProductDetails } from './screens/ProductDetails';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path='/product/:productId' element={<ProductDetails />} />
+              {/* <Route path='/product/:productId' element={<ProductDetails />} /> */}
               <Route path="/products" element={<Products />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/products/:categoryId" element={<ProductsCategory />} />
