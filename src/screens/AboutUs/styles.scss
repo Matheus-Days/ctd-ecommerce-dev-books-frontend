@@ -21,7 +21,9 @@
   }
 
   .card-list {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
   }
   
   .item-list-card {
@@ -33,7 +35,7 @@
     justify-content: space-around;
     align-items: center;
     padding: .5rem;
-    width: 350px;
+    width: 280px;
     margin-top: 10px;
   }
 
@@ -46,6 +48,7 @@
   .card-name {
     font-weight: bold;
     font-size: 1rem;
+    padding-left: 8px;
   }
 
   .card-social {
@@ -85,8 +88,9 @@
 
   .card-list {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
   }
   
   .item-list-card {
