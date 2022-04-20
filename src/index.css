@@ -9,7 +9,7 @@ body {
   
 }
 
-html, body, #root, main {
+html, body, #root {
   min-height:100%;
   height:100%;
 }
