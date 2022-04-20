@@ -9,8 +9,6 @@ footer {
   height: 32px;
   padding: 0 20px;
   background-color: #00CCC0;
-  position: fixed;
-  z-index: 1000;
   width: 100%;
   color: white;
   font-size: 0.438rem;
@@ -43,7 +41,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 61px;
     font-size: 0.75rem;
   }
 

@@ -2,19 +2,19 @@ main {
   width: 100%;
   min-height: calc(100vh - 32px);
   background-color: #FFFFFF;
-  padding-top: 39px;
+  margin-top: 39px;
 }
 
 @media (min-width: 768px) {
   main {
     min-height: calc(100vh - 48px);
-    padding-top: 64px;
+    margin-top: 64px;
   }
 }
 
 @media (min-width: 1024px) {
   main {
     min-height: calc(100vh - 61px);
-    padding-top: 74px;
+    margin-top: 74px;
   }
 }
